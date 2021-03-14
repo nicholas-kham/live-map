@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/live-map/static/css/main.814c154f.chunk.css",
+    "main.js": "/live-map/static/js/main.361b7225.chunk.js",
+    "main.js.map": "/live-map/static/js/main.361b7225.chunk.js.map",
+    "runtime-main.js": "/live-map/static/js/runtime-main.7e2d051a.js",
+    "runtime-main.js.map": "/live-map/static/js/runtime-main.7e2d051a.js.map",
+    "static/js/2.54f76de8.chunk.js": "/live-map/static/js/2.54f76de8.chunk.js",
+    "static/js/2.54f76de8.chunk.js.map": "/live-map/static/js/2.54f76de8.chunk.js.map",
+    "static/js/3.75759506.chunk.js": "/live-map/static/js/3.75759506.chunk.js",
+    "static/js/3.75759506.chunk.js.map": "/live-map/static/js/3.75759506.chunk.js.map",
+    "index.html": "/live-map/index.html",
+    "static/css/main.814c154f.chunk.css.map": "/live-map/static/css/main.814c154f.chunk.css.map",
+    "static/js/2.54f76de8.chunk.js.LICENSE.txt": "/live-map/static/js/2.54f76de8.chunk.js.LICENSE.txt",
+    "static/media/bearer.56672884.svg": "/live-map/static/media/bearer.56672884.svg",
+    "static/media/person.f487c13b.svg": "/live-map/static/media/person.f487c13b.svg",
+    "static/media/redcross.1cef6356.svg": "/live-map/static/media/redcross.1cef6356.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e2d051a.js",
+    "static/js/2.54f76de8.chunk.js",
+    "static/css/main.814c154f.chunk.css",
+    "static/js/main.361b7225.chunk.js"
+  ]
+}
