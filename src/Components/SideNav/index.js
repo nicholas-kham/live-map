@@ -32,7 +32,7 @@ const SideNav = () => {
           setToggle("open-nav");
         }}
       >
-        &#9776; Shan Map Live
+        &#9776; &nbsp; Shan Map Live
       </div>
     </>
   );
