@@ -16,17 +16,17 @@ import { getCookie, setCookie } from "../../utils/cookie-utils";
 import { sha256 } from "js-sha256";
 
 function MapView() {
-  const [latlng, setlatlng] = useState({ lat: 16.8409, lng: 96.1735 });
+  const [latlng, setlatlng] = useState({ lat: 22.9665, lng: 97.7525 });
   const [modelVisible, setModelVisible] = useState(false);
   // const [selectedMarkerId, setSelectedMarkerId] = useState("");
 
   const [selectedLatLng, setSelectedLatLng] = useState({
-    lat: 16.8409,
-    lng: 96.1735,
+    lat: 22.9665,
+    lng: 97.7525,
   });
   const [userPositon, setUserPosition] = useState({
-    lat: 16.8409,
-    lng: 96.1735,
+    lat: 22.9665,
+    lng: 97.7525,
   });
 
   useEffect(() => {
@@ -125,7 +125,7 @@ function MapView() {
           />
           <PersonMarker
             position={[userPositon.lat, userPositon.lng]}
-            message="This is your current location"
+            message="သင်ရဲ့ လက်ရှိတည်နေရာ"
           />
           <FirebaseDatabaseNode path="locations">
             {(d) => {
