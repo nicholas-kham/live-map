@@ -15,6 +15,5 @@ export const config = {
     projectId: "my-app-a0261",
     storageBucket: "my-app-a0261.appspot.com",
     messagingSenderId: "395899036357",
-    //appId: "1:395899036357:web:81adaaa3fdd7945fbec6ac",
     measurementId: "G-TWWZH91Z0F"
   };
