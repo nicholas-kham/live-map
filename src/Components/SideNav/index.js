@@ -26,12 +26,13 @@ const SideNav = () => {
           position: "fixed",
           zIndex: "1000",
           width: "100%",
+          padding: "5px"
         }}
         onClick={() => {
           setToggle("open-nav");
         }}
       >
-        &#9776; Myanmar Map Live
+        &#9776; Shan Map Live
       </div>
     </>
   );
