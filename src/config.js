@@ -3,13 +3,12 @@ export const config = {
   // DO NOT USE THESE CREDENTIALS ! THEY ARE HERE TO HELP IN THE LEARNING PROCESS.
   // ANY AND ALL DATA ON THAT DOMAIN IS SUBJECT TO CHANGE AND REMOVAL AT ANY TIME
   // THIS ACCOUNT IS ALSO ON THE FREE PLAN AND IS SUBJECT TO RESTRICTIONS !
-  apiKey: "AIzaSyAxmi8Yma535ZPPnB3KTGsQaLwHvrw7QKw",
-  authDomain: "my-app-a0261.firebaseapp.com",
-  projectId: "my-app-a0261",
-  storageBucket: "my-app-a0261.appspot.com",
-  messagingSenderId: "395899036357",
-  appId: "1:395899036357:web:81adaaa3fdd7945fbec6ac",
-  measurementId: "G-TWWZH91Z0F"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 firebase.initializeApp(config);
