@@ -14,7 +14,7 @@ const Legend = () => {
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "info legend");
       div.style.background = "rgb(56, 56, 56,0.7)";
-      div.style.width = "200px";
+      div.style.width = "220px";
       div.style.padding = "20px 10px";
       div.style.display = "flex";
       div.style.flexDirection = "column";
@@ -31,22 +31,22 @@ const Legend = () => {
           ">စစ်တပ် </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><div class='blue-circle' style='width:20px;height:20px;margin-left: 10px;
+        `<div style='display:flex; margin-top:3px;'><div class='blue-circle' style='width:20px;height:20px;margin-left: 10px;
           margin-top: 5px;'></div> <p style="margin:0;line-height: 10px;
           ">ရဲ/လုံထိန်း </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex; margin-bottom:3px;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
         margin-left: 6px;
             ">ကယ်ဆယ်ရေး/ဆေးရုံဆေးခန်း</p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex; margin-top:5px;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
         margin-left: 6px;
             ">အတားအဆီးများ </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex; margin-top:3px;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
         margin-left: 6px;
             ">သင် လက်ရှိ နေရာ</p></div>`
       );
