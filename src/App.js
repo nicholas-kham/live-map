@@ -6,13 +6,13 @@ import MapView from "./Container/MapView";
 
 function App() {
   return (
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <SideNav />
       <Switch>
-        <Route exact path={`${process.env.PUBLIC_URL}/`}>
+        <Route exact path= "/">
           <MapView />
         </Route>
-        <Route exact path={`${process.env.PUBLIC_URL}/home`}>
+        <Route exact path= "/home">
           <MapView />
         </Route>
         <Route path="*"> 404 </Route>
