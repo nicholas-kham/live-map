@@ -41,6 +41,7 @@ export const RedCrossIcon = new L.Icon({
 });
 
 const sizeMap = {
+  "1-10": [10, 10],
   "10-20": [15, 15],
   "20-50": [20, 20],
   "50-100": [25, 25],

@@ -48,6 +48,7 @@ const PoliceMarker = ({
     </Marker>
   );
 };
+
 const BearerMarker = ({ id, position, message, onMarkerClick, fbKey }) => (
   <Marker
     position={position}
@@ -81,6 +82,7 @@ const RescueCenterMarker = ({
     {message && <Popup>{message}</Popup>}
   </Marker>
 );
+
 const MilitryMarker = ({
   id,
   position,
