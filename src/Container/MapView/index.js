@@ -107,13 +107,13 @@ function MapView() {
                 if (
                   password &&
                   sha256(btoa(password)) ===
-                    "6129c394320ddc88310abc7badadc4568a516198dfac8bc408e561e9a75fd1f0"
+                    "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                 ) {
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
 
                   setModelVisible(true);
                   setCookie("MASTER_LOGIN", "exists", 1);
-                }
+                } 
               }
             }}
           />
@@ -152,7 +152,7 @@ function MapView() {
                               if (
                                 password &&
                                 sha256(btoa(password)) ===
-                                  "6129c394320ddc88310abc7badadc4568a516198dfac8bc408e561e9a75fd1f0"
+                                  "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                               ) {
                                 const result = window.confirm(
                                   "Want to delete?"
