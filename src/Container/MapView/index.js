@@ -93,8 +93,8 @@ function MapView() {
           style={{ height: `100vh` }}
           center={[latlng.lat, latlng.lng]}
           zoom={13}
-          zoomControl={false}
-          scrollWheelZoom={false}
+          zoomControl={true}
+          scrollWheelZoom={true}
         >
           <AddMarkerToClick
             onMapClick={(e) => {
