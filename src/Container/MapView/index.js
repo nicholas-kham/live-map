@@ -47,7 +47,7 @@ function MapView() {
       <Model
         visible={modelVisible}
         onOkClick={(e) => {
-          database.ref("locations/" + nanoid()).set({
+          database.ref("locations/" + nanoid()).set({   //fix database connection
             created_at: Date.now(),
             id: nanoid(),
             unitSize: e.unitSize,
@@ -64,6 +64,7 @@ function MapView() {
           setModelVisible(false);
         }}
       ></Model>
+
       <FirebaseDatabaseProvider firebase={firebase} {...config}>
         <div className="location-selector-wrapper">
           <div className="location-selector">
