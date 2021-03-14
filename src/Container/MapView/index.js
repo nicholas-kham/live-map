@@ -107,7 +107,7 @@ function MapView() {
                 if (
                   password &&
                   sha256(btoa(password)) ===
-                    "5e6741f47ff196ea8fc4c5729815182a22544b597626edf86de78212a39943be"
+                    "6129c394320ddc88310abc7badadc4568a516198dfac8bc408e561e9a75fd1f0"
                 ) {
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
 
@@ -152,7 +152,7 @@ function MapView() {
                               if (
                                 password &&
                                 sha256(btoa(password)) ===
-                                  "5e6741f47ff196ea8fc4c5729815182a22544b597626edf86de78212a39943be"
+                                  "6129c394320ddc88310abc7badadc4568a516198dfac8bc408e561e9a75fd1f0"
                               ) {
                                 const result = window.confirm(
                                   "Want to delete?"
