@@ -60,7 +60,7 @@
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(255, 0, 0);
   text-decoration: none;
   cursor: pointer;
 }

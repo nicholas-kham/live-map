@@ -36,6 +36,7 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
                 setUnitSize(e.target.value);
               }}
             >
+              <option value="1-10">၁ - ၁၀ ခန့် </option>
               <option value="10-20">၁၀ - ၂၀ခန့် </option>
               <option value="20-50" selected>
                 ၂၀ - ၅၀ ခန့်
@@ -60,11 +61,11 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
               onOkClick({ objType, message, unitSize });
             }}
           >
-            Report
+            Report (တင်မည်)
           </button>
         </div>
         <div className="flex">
-          <button onClick={() => onCancelClick()}>Cancel</button>
+          <button onClick={() => onCancelClick()}>Cancel (ထွက်မည်)</button>
         </div>
       </div>
     </div>
