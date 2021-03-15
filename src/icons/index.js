@@ -1,8 +1,11 @@
 import L from "leaflet";
 import person from "./person.svg";
-
 import bearer from "./bearer.svg";
 import redcross from "./redcross.svg";
+//import admin from "./admin.svg";
+//import home from "./home.svg";
+//import login from "./login.svg";
+//import unlogin from "./password.svg";
 
 export const PersonIcon = new L.Icon({
   iconUrl: person,
