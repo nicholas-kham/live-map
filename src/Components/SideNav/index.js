@@ -2,6 +2,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
+import {
+  FirebaseAuthProvider,
+  FirebaseAuthConsumer
+} from "@react-firebase/auth";
+
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
   return (
@@ -17,6 +22,7 @@ const SideNav = () => {
         </div>
         <Link to="/home">Home</Link>
         <button className="button"> Sign In</button>
+        <button className="button"> Sign Out</button>
       </div>
 
       <div
