@@ -14,8 +14,8 @@ const Legend = () => {
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "info legend");
       div.style.background = "rgb(56, 56, 56,0.7)";
-      div.style.width = "220px";
-      div.style.padding = "20px 10px";
+      div.style.width = "210px";
+      div.style.padding = "20px 10px 10px 10px";
       div.style.display = "flex";
       div.style.flexDirection = "column";
       div.style.borderRadius = "20px";

@@ -45,8 +45,8 @@ select {
 
   width: 40vw;
 
-  border: 1px solid #ccc;
-  height: 40px;
+  border: 2px solid rgb(173, 173, 173);
+  height: 50px;
   -webkit-appearance: none;
   appearance: none;
   background: #fff;
@@ -55,7 +55,7 @@ select {
 .location-selector-wrapper {
   position: absolute;
   left: 50%;
-  top: 60px;
+  top: 30px;
   z-index: 1000;
 }
 .location-selector {
@@ -64,7 +64,7 @@ select {
 }
 @media screen and (max-width: 480px) {
   select {
-    width: 90vw;
+    width: 75vw;
   }
 }
 

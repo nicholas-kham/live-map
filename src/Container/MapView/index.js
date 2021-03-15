@@ -131,8 +131,7 @@ function MapView() {
             {(d) => {
               return (
                 <>
-                  {!d.isLoading &&
-                    d.value &&
+                  {!d.isLoading && d.value && 
                     Object.keys(d.value).map((i) => {
                       return (
                         <MapMarker

@@ -12,7 +12,7 @@
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 40px;
   text-decoration: none;
   font-size: 25px;
   color: #ffffff;
@@ -48,7 +48,7 @@
 }
 
 .open-nav {
-  width: 250px;
+  width: 200px;
 }
 
 .close-nav {
