@@ -13,4 +13,4 @@ The project inspired by HK protest sentry police watch app.
 - long polling on location list fetching
 # Credit to
 
-This is repo is base on watch-dog-mm which is well know as [myanmar live map](myanmarmap.live).
+This is repo is base on watch-dog-mm which is well know as [Myanmar Live Map](myanmarmap.live).
