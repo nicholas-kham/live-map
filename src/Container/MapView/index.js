@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { ChangeView } from "../../ChangeView";

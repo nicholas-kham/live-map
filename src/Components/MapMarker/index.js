@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+var React = require('react');
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 import {

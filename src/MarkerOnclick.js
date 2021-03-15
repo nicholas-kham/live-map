@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useMapEvents } from "react-leaflet";
+import React from 'react';
 
 export function AddMarkerToClick({ onMapClick }) {
   useMapEvents({
