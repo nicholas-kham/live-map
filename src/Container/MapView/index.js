@@ -121,7 +121,7 @@ function MapView() {
           <ChangeView center={[latlng.lat, latlng.lng]} zoom={14} />
 
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
             url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
           />
           <PersonMarker
