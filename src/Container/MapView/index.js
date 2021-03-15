@@ -16,17 +16,17 @@ import { getCookie, setCookie } from "../../utils/cookie-utils";
 import { sha256 } from "js-sha256";
 
 function MapView() {
-  const [latlng, setlatlng] = useState({ lat: 22.9665, lng: 97.7525 });
+  const [latlng, setlatlng] = useState({ lat: 22.94083, lng: 97.74459 });
   const [modelVisible, setModelVisible] = useState(false);
   // const [selectedMarkerId, setSelectedMarkerId] = useState("");
 
   const [selectedLatLng, setSelectedLatLng] = useState({
-    lat: 22.9665,
-    lng: 97.7525,
+    lat: 22.94083,
+    lng: 97.74459,
   });
   const [userPositon, setUserPosition] = useState({
-    lat: 22.9665,
-    lng: 97.7525,
+    lat: 22.94083,
+    lng: 97.74459,
   });
 
   useEffect(() => {
@@ -76,7 +76,7 @@ function MapView() {
                 });
               }}
             > 
-              <option value="22.9665|97.7525" selected>လားရှိုး (Lashio)</option>
+              <option value="22.94083|97.74459" selected>လားရှိုး (Lashio)</option>
               <option value="16.8409|96.1735"> ရန်ကုန် (Yangon)</option>
               <option value="21.9588|96.0891"> မန္တလေး (Mandalay)</option>
               <option value="24.1821769|96.329305">ကသာ (Kathar)</option>
@@ -118,11 +118,11 @@ function MapView() {
               }
             }}
           />
-          <ChangeView center={[latlng.lat, latlng.lng]} zoom={13} />
+          <ChangeView center={[latlng.lat, latlng.lng]} zoom={14} />
 
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+            url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
           />
           <PersonMarker
             position={[userPositon.lat, userPositon.lng]}
