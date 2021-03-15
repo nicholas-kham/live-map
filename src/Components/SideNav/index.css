@@ -24,6 +24,17 @@
   color: #41d2e6;
 }
 
+.sidenav .button {
+  margin: 8px 8px 8px 40px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: rgb(148, 64, 64);
+  display: block;
+  transition: 0.3s;
+}
+
 .sidenav .closebtn {
   position: absolute;
   color: #ffffff;
