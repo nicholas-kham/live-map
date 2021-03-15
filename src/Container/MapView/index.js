@@ -107,9 +107,7 @@ function MapView() {
               } else {
                 const password = prompt("Please enter master password:", "");
                 if (
-                  password &&
-                  sha256(btoa(password)) ===
-                    "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
+                  password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                 ) {
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
 
@@ -152,9 +150,7 @@ function MapView() {
                                 "Please enter master password:"
                               );
                               if (
-                                password &&
-                                sha256(btoa(password)) ===
-                                  "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
+                                password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                               ) {
                                 const result = window.confirm(
                                   "Want to delete?"

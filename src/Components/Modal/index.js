@@ -5,7 +5,7 @@ import "./index.css";
 
 const Model = ({ visible, onOkClick, onCancelClick }) => {
   const [objType, setObjType] = useState("pol");
-  const [unitSize, setUnitSize] = useState("20-50");
+  const [unitSize, setUnitSize] = useState("1-10");
   const [message, setMessage] = useState("");
 
   return (
@@ -22,11 +22,9 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
               setObjType(e.target.value);
             }}
           >
-            <option value="pol">ရဲ / လုံထိန်း</option>
+            <option value="pol" selected>ရဲ / လုံထိန်း</option>
             <option value="resc">ကယ်ဆယ်ရေး / ဆေးရုံဆေးခန်း</option>
-            <option value="milt" selected>
-              စစ်တပ်
-            </option>
+            <option value="milt">စစ်တပ်</option>
             <option value="bearer">အတားအဆီး</option>
           </select>
         </div>
@@ -38,11 +36,9 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
                 setUnitSize(e.target.value);
               }}
             >
-              <option value="1-10">၁ - ၁၀ ခန့် </option>
+              <option value="1-10" selected>၁ - ၁၀ ခန့် </option>
               <option value="10-20">၁၀ - ၂၀ခန့် </option>
-              <option value="20-50" selected>
-                ၂၀ - ၅၀ ခန့်
-              </option>
+              <option value="20-50"> ၂၀ - ၅၀ ခန့်</option>
               <option value="50-100">၅၀ - ၁၀၀ခန့်</option>
               <option value="100-200">၁၀၀ - ၂၀၀ခန့်</option>
               <option value="200-above">၂၀၀ နှင့်အထက်</option>
