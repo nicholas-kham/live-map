@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { ChangeView } from "../../ChangeView";
@@ -47,7 +48,7 @@ function MapView() {
       <Model
         visible={modelVisible}
         onOkClick={(e) => {
-          database.ref("locations/" + nanoid()).set({   //fix database connection
+          database.ref("locations/" + nanoid()).set({
             created_at: Date.now(),
             id: nanoid(),
             unitSize: e.unitSize,
