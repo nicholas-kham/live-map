@@ -21,6 +21,7 @@ const SideNav = () => {
           &times;
         </div>
         <Link to="/home">Home</Link>
+        
         <div style={{margin: "20px 8px 8px 40px"}}>
           <button className="button1"> Sign In</button>
           <br></br>
