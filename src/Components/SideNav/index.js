@@ -24,7 +24,12 @@ const SideNav = () => {
         </div>
         <Link to="/home">Home</Link>
         
-        <div style={{margin: "20px 8px 8px 40px"}}>
+        <div style={{margin: "20px 8px 8px 40px",
+            display: "inline-block",
+            fontStyle: "normal",
+            fontVariant: "normal",
+            textRendering: "auto",
+            WebkitFontSmoothing: "antialiased"}}>
           <button className="login-btn"> Login </button>
           <br></br>
           <button className="logout-btn"> Logout</button>
