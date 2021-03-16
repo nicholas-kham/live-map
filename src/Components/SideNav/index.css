@@ -25,14 +25,47 @@
 }
 
 .sidenav .button {
-  margin: 8px 8px 8px 40px;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #ffffff;
-  background-color: rgb(148, 64, 64);
-  display: block;
-  transition: 0.3s;
+ display:inline-block;
+ padding:0.3em 1.2em;
+ margin:0 0.1em 0.5em 0;
+ border:0.16em solid rgba(0, 0, 0, 0);
+ background-color: #ff0000;
+ border-radius:2em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ font-size: 20px;
+ color:#ffffff;
+ text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+ text-align:center;
+ transition: all 0.2s;
+}
+
+.sidenav .button1 {
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:0 0.1em 0.5em 0;
+  border:0.16em solid rgba(0, 0, 0, 0);
+  background-color: #00b90f;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  font-size: 20px;
+  color:#ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+.sidenav .button:hover {
+  border-color: rgba(255,255,255,1);
+}
+
+.sidenav .button1:hover {
+  border-color: rgba(255,255,255,1);
 }
 
 .sidenav .closebtn {
