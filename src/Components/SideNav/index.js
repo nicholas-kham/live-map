@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import 'font-awesome/css/font-awesome.min.css';
 import {
   FirebaseAuthProvider,
   FirebaseAuthConsumer
