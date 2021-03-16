@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   FirebaseAuthProvider,
   FirebaseAuthConsumer
@@ -23,9 +24,9 @@ const SideNav = () => {
         <Link to="/home">Home</Link>
         
         <div style={{margin: "20px 8px 8px 40px"}}>
-          <button className="button1"> Sign In</button>
+          <button className="login-btn"> Login </button>
           <br></br>
-          <button className="button"> Sign Out</button>
+          <button className="logout-btn"> Logout</button>
         </div>
       </div>
 
