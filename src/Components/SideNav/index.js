@@ -3,10 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import {
-  FirebaseAuthProvider,
-  FirebaseAuthConsumer
-} from "@react-firebase/auth";
+import Login from "../../Container/Auth";
 
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
@@ -22,6 +19,11 @@ const SideNav = () => {
           &times;
         </div>
         <Link to="/home">Home</Link>
+
+        <div>
+          <Login/>
+
+        </div>
         
         <div style={{margin: "20px 8px 8px 40px",
             display: "inline-block",

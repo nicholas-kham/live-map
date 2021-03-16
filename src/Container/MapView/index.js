@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ChangeView } from "../../ChangeView";
 import MapMarker, { PersonMarker } from "../../Components/MapMarker";
 import firebase from "firebase";
-import { config, database } from "../../config";
+import { config } from "../../config";
 import {
   FirebaseDatabaseNode,
   FirebaseDatabaseProvider,
@@ -48,7 +48,7 @@ function MapView() {
       <Model
         visible={modelVisible}
         onOkClick={(e) => {
-          database.ref("locations/" + nanoid()).set({
+          firebase.database().ref("locations/" + nanoid()).set({
             created_at: Date.now(),
             id: nanoid(),
             unitSize: e.unitSize,
@@ -142,7 +142,7 @@ function MapView() {
                             if (getCookie("MASTER_LOGIN") === "exists") {
                               const result = window.confirm("Want to delete?");
                               if (result) {
-                                database.ref("locations/" + fbKey).remove();
+                                firebase.database().ref("locations/" + fbKey).remove();
                               }
                             } else {
                               const password = prompt(
@@ -155,7 +155,7 @@ function MapView() {
                                   "Want to delete?"
                                 );
                                 if (result) {
-                                  database.ref("locations/" + fbKey).remove();
+                                  firebase.database().ref("locations/" + fbKey).remove();
                                 }
                               }
                             }
