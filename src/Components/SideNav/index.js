@@ -33,17 +33,6 @@ const SideNav = () => {
           </Auth_Database>
         </div>
         
-        <div style={{margin: "20px 8px 8px 40px",
-            display: "inline-block",
-            fontStyle: "normal",
-            fontVariant: "normal",
-            textRendering: "auto",
-            textDecoration: "inherit",
-            WebkitFontSmoothing: "antialiased"}}>
-          <button className="login-btn"> Login </button>
-          <br></br>
-          <button className="logout-btn"> Logout</button>
-        </div>
       </div>
 
       <div

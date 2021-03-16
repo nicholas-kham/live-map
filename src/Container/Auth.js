@@ -15,16 +15,24 @@ import * as React from "react";
   const Auth_Database = ({ visible, loading, onOkClick }) => {
       
       return(
-        <div className={`loginModel ${visible ? 'visible' : 'hide'}`}>
+        <div className={`loginModel ${visible ? 'visible' : 'hide'}`} 
+        style={{
+            margin: "20px 8px 8px 40px",
+            display: "inline-block",
+            fontStyle: "normal",
+            fontVariant: "normal",
+            textRendering: "auto",
+            textDecoration: "inherit",
+            WebkitFontSmoothing: "antialiased"}}>
+                
           <FirebaseAuthProvider {...config} firebase={firebase}>
             <State initial={{ isLoading: false }}>
             {({ state, setState }) => (
                 <React.Fragment>
-                <div>isLoading : {JSON.stringify(state.isLoading)}</div>
                 <IfFirebaseAuthed>
                     <div>
-                    <h2>You&apos;re signed in 🎉 </h2>
-                    <button
+                    <h2 style={{color: "white"}}> Edit Mode </h2>
+                    <button className="logout-btn"
                         onClick={async () => {
                         setState({ isLoading: true });
                         await firebase
@@ -32,16 +40,17 @@ import * as React from "react";
                             .auth()
                             .signOut();
                         setState({ isLoading: false });
+                            if (state.isLoading) loading();
                         }}
                     >
-                        Sign out
+                        Logout
                     </button>
                     </div>
                 </IfFirebaseAuthed>
                 <IfFirebaseUnAuthed>
                     <div>
-                    <h2>You&apos;re not signed in </h2>
-                    <button
+                    <h2 style={{color: "white"}}>View Mode</h2>
+                    <button className="login-btn"
                         onClick={async () => {
                         setState({ isLoading: true });
                         await firebase
@@ -49,20 +58,22 @@ import * as React from "react";
                             .auth()
                             .signInAnonymously();
                         setState({ isLoading: false });
+                        if (state.isLoading) loading();
                         }}
                     >
-                        Sign in anonymously
+                        Login anonymously
                     </button>
-                    <button
+                    <button className="login-btn"
                         onClick={() => {
-                        setState({ isLoading: true });
-                        const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-                        //googleAuthProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-                        firebase.auth().signInWithPopup(googleAuthProvider);
-                        //setState({ isLoading: false });
+                            setState({ isLoading: true });
+                            const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+                            //googleAuthProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+                            firebase.auth().signInWithPopup(googleAuthProvider);
+                            //setState({ isLoading: false });
+                            if (state.isLoading) loading();
                         }}
                     >
-                        Sign in with Google
+                        Google Login
                     </button>
                     </div>
                 </IfFirebaseUnAuthed>
