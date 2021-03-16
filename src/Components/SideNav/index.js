@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
-//import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import Auth_Database from "../../Container/Auth";
 import { getCookie } from "../../utils/cookie-utils";
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
@@ -36,6 +38,7 @@ const SideNav = () => {
             fontStyle: "normal",
             fontVariant: "normal",
             textRendering: "auto",
+            textDecoration: "inherit",
             WebkitFontSmoothing: "antialiased"}}>
           <button className="login-btn"> Login </button>
           <br></br>

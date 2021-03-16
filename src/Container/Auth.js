@@ -15,7 +15,7 @@ import * as React from "react";
   const Auth_Database = ({ visible, loading, onOkClick }) => {
       
       return(
-        <div className={`${visible ? 'visible' : 'hide'}`}>
+        <div className={`loginModel ${visible ? 'visible' : 'hide'}`}>
           <FirebaseAuthProvider {...config} firebase={firebase}>
             <State initial={{ isLoading: false }}>
             {({ state, setState }) => (

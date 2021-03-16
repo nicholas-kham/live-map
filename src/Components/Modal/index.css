@@ -64,3 +64,14 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.loginModel {
+  margin: 20px 8px 8px 40px;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  
+  position: absolute;
+  width: auto;
+}
