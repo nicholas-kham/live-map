@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 //import '@fortawesome/fontawesome-free/css/all.css';
-import Login from "../../Container/Auth";
+import Auth_Database from "../../Container/Auth";
+import { getCookie } from "../../utils/cookie-utils";
 
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
+  const [visibleClass, setVisible] = useState(false);
+
   return (
     <>
       <div id="mySidenav" className={`sidenav ${toggleClass}`}>
@@ -22,8 +25,10 @@ const SideNav = () => {
         <Link to="/home">Home</Link>
 
         <div>
-          <Login/>
-
+          <Auth_Database
+             visible = {visibleClass}
+             >
+          </Auth_Database>
         </div>
         
         <div style={{margin: "20px 8px 8px 40px",
@@ -51,6 +56,8 @@ const SideNav = () => {
         }}
         onClick={() => {
           setToggle("open-nav");
+          if (getCookie("MASTER_LOGIN") === "exists") setVisible(true);
+          else  setVisible(false);
         }}
       >
         &nbsp; &#9776; &nbsp; Shan Map Live

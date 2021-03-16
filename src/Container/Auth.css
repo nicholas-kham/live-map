@@ -1,0 +1,13 @@
+  .loginModel {
+      display: none;
+      position: absolute;
+      width: auto;
+  }
+  .visible {
+      display: block;
+  }
+  
+  .hide {
+      display: none;
+  }
+  
