@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
+//import '@fortawesome/fontawesome-free/css/all.css';
 import Login from "../../Container/Auth";
 
 const SideNav = () => {
