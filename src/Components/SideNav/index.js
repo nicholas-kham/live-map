@@ -7,8 +7,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import Auth_Database from "../../Container/Auth";
 import { getCookie } from "../../utils/cookie-utils";
 import { Detector } from "react-detect-offline";
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
