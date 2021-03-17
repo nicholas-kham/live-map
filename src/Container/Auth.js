@@ -12,7 +12,7 @@ import * as React from "react";
   import "firebase/auth";
   import { config } from "../config";
 
-  const Auth_Database = ({ visible, loading, onOkClick }) => {
+  const Auth_Database = ({ visible, loading }) => {
       
       return(
         <div className={`loginModel ${visible ? 'visible' : 'hide'}`} 
