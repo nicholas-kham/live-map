@@ -14,14 +14,14 @@ const Legend = () => {
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "info legend");
       div.style.background = "rgb(56, 56, 56,0.7)";
-      div.style.width = "210px";
+      div.style.width = "160px";
       div.style.padding = "20px 10px 10px 10px";
       div.style.display = "flex";
       div.style.flexDirection = "column";
       div.style.borderRadius = "20px";
       div.style.color = "white";
       div.style.fontSize = "15px";
-      div.style.marginBottom = "50px";
+      div.style.marginBottom = "20px";
 
       let labels = [];
 
@@ -36,19 +36,19 @@ const Legend = () => {
           ">ရဲ/လုံထိန်း </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;'/><p style="margin:0; line-height: 16px;
         margin-left: 6px;
-            ">ကယ်ဆယ်ရေး/ဆေးရုံဆေးခန်း</p></div>`
+            ">ကယ်ဆယ်ရေး/ဆေးရုံ၊ ဆေးခန်း</p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;'/><p style="margin:0;  line-height: 16px;
         margin-left: 6px;
             ">အတားအဆီးများ </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;'/><p style="margin:0;line-height: 10px;    line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;'/><p style="margin:0;  line-height: 16px;
         margin-left: 6px;
-            ">သင် လက်ရှိ နေရာ</p></div>`
+            ">သင် လက်ရှိနေရာ</p></div>`
       );
 
       div.innerHTML = labels.join("<br>");
