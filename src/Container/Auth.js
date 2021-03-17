@@ -51,19 +51,6 @@ import * as React from "react";
                     <div>
                     <h2 style={{color: "white"}}>View Mode</h2>
                     <button className="login-btn"
-                        onClick={async () => {
-                        setState({ isLoading: true });
-                        await firebase
-                            .app()
-                            .auth()
-                            .signInAnonymously();
-                        setState({ isLoading: false });
-                        if (state.isLoading) loading();
-                        }}
-                    >
-                        Login anonymously
-                    </button>
-                    <button className="login-btn"
                         onClick={() => {
                             setState({ isLoading: true });
                             const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -73,7 +60,7 @@ import * as React from "react";
                             if (state.isLoading) loading();
                         }}
                     >
-                        Google Login
+                        Login
                     </button>
                     </div>
                 </IfFirebaseUnAuthed>

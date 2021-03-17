@@ -166,3 +166,13 @@
     color: #ffffff;
 }
 
+.normal{
+  color: greenyellow;
+  right: 80%;
+}
+
+.warning{
+  color: red;
+  position: relative;
+  right: auto;
+}

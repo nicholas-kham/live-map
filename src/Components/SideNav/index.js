@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import Auth_Database from "../../Container/Auth";
 import { getCookie } from "../../utils/cookie-utils";
+import { Detector } from "react-detect-offline";
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -52,7 +53,14 @@ const SideNav = () => {
           else  setVisible(false);
         }}
       >
-        &nbsp; &#9776; &nbsp; Shan Map Live
+        &nbsp; &#9776; &nbsp; Shan Map Live &nbsp;&nbsp;&nbsp;
+        <Detector
+          render={({ online }) => (
+            <a className={`${online ? "normal" : "warning"}`}>
+                {online ? "Online" : "Offline"}
+            </a>
+          )}
+        />
       </div>
     </>
   );

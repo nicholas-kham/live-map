@@ -10058,6 +10058,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-detect-offline@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/react-detect-offline/-/react-detect-offline-2.4.3.tgz#167c340f86adba719b7d57acef69a2f5664412fa"
+  integrity sha512-YDJRJ1qbCcwCV37yiBGEzC+SeHtqe2kKV9EVYDEo77gm9QFLa2tZesF6ciOSx1A+tmMAZGtBD38VHdBQVe4yAA==
+
 react-dev-utils@^11.0.3:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz#a7ccb60257a1ca2e0efe7a83e38e6700d17aa37a"
@@ -10131,6 +10136,11 @@ react-minimal-side-navigation@^1.8.0:
   dependencies:
     "@babel/runtime" "^7.12.1"
     tailwindcss ">=1.9.6"
+
+react-online-status@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-online-status/-/react-online-status-0.1.0.tgz#cf11a3064da117ab218a4e782a99017e256171f4"
+  integrity sha512-TsHEgwInOYBUzdFBW+jp4iX9YdTb9OXGYFnz8eM58fLltR7RO4W/bQTTQ6fLjrYrQIvXzYBc7S+tjPk9nVBdAw==
 
 react-powerplug@^1.0.0:
   version "1.0.0"
