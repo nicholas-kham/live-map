@@ -66,7 +66,7 @@ const SideNav = () => {
         style={{
           fontSize: "20px",
           cursor: "pointer",
-          background: "#6f6f6f",
+          background: "rgb(39, 155, 190)",
           color: "white",
           position: "fixed",
           zIndex: "1000",
