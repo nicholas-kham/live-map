@@ -7,11 +7,39 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import Auth_Database from "../../Container/Auth";
 import { getCookie } from "../../utils/cookie-utils";
 import { Detector } from "react-detect-offline";
+import Swal from 'sweetalert2'
+
+const ConnectWarn = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
 
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
   const [visibleClass, setVisible] = useState(false);
+  var loginState = false;
 
+  function userStatus( notiType = false ){
+    if( notiType ) {
+      ConnectWarn.fire({
+        icon: 'success',
+        title: 'Admin'
+      })
+    } else {
+      ConnectWarn.fire({
+        icon: 'info',
+        title: 'User'
+      })
+    }
+  }
+  
   return (
     <>
       <div id="mySidenav" className={`sidenav ${toggleClass}`}>
@@ -53,12 +81,15 @@ const SideNav = () => {
       >
         &nbsp; &#9776; &nbsp; Shan Map Live &nbsp;&nbsp;&nbsp;
         <Detector
-          render={({ online }) => (
-            <a className={`${online ? "normal" : "warning"}`}>
-                {online ? "Online" : "Offline"}
-            </a>
-          )}
+          render={({ online }) => {
+            return(
+              <a className={`${online ? "normal" : "warning"}`}>
+                  {online ? "Online" : "Offline"}
+              </a>
+            )
+          }}
         />
+        
       </div>
     </>
   );

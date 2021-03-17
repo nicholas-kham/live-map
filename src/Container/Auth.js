@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import * as React from "react";
+import { useState } from "react";
 //import { render } from "react-dom";
   import {
     FirebaseAuthProvider,
@@ -12,13 +13,13 @@ import * as React from "react";
   import "firebase/auth";
   import { config } from "../config";
 
-  const Auth_Database = ({ visible, loading }) => {
+  const Auth_Database = ({ visible, logined }) => {
+    const [loginStatus, setLoginStatus] = useState(false);
       
       return(
         <div className={`loginModel ${visible ? 'visible' : 'hide'}`} 
         style={{
             margin: "20px 8px 8px 40px",
-            display: "inline-block",
             fontStyle: "normal",
             fontVariant: "normal",
             textRendering: "auto",
@@ -30,7 +31,7 @@ import * as React from "react";
             {({ state, setState }) => (
                 <React.Fragment>
                 <IfFirebaseAuthed>
-                    <div>
+                    <div onLoad={ setLoginStatus(true) }>
                     <h2 style={{color: "white"}}> Edit Mode </h2>
                     <button className="logout-btn"
                         onClick={async () => {
@@ -39,8 +40,7 @@ import * as React from "react";
                             .app()
                             .auth()
                             .signOut();
-                        setState({ isLoading: false });
-                            if (state.isLoading) loading();
+                            setState({ isLoading: false });
                         }}
                     >
                         Logout
@@ -48,7 +48,7 @@ import * as React from "react";
                     </div>
                 </IfFirebaseAuthed>
                 <IfFirebaseUnAuthed>
-                    <div>
+                    <div onLoad={ setLoginStatus(false) }>
                     <h2 style={{color: "white"}}>View Mode</h2>
                     <button className="login-btn"
                         onClick={() => {
@@ -57,7 +57,6 @@ import * as React from "react";
                             //googleAuthProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
                             firebase.auth().signInWithPopup(googleAuthProvider);
                             //setState({ isLoading: false });
-                            if (state.isLoading) loading();
                         }}
                     >
                         Login

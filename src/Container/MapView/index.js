@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/react-in-jsx-scope */
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useEffect, useState } from "react";
@@ -15,11 +16,38 @@ import { AddMarkerToClick } from "../../MarkerOnclick";
 import { nanoid } from "nanoid";
 import { getCookie, setCookie } from "../../utils/cookie-utils";
 import { sha256 } from "js-sha256";
+import { Detector } from "react-detect-offline";
+import Swal from 'sweetalert2'
+
+const ConnectWarn = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
 
 function MapView() {
   const [latlng, setlatlng] = useState({ lat: 22.94083, lng: 97.74459 });
   const [modelVisible, setModelVisible] = useState(false);
   // const [selectedMarkerId, setSelectedMarkerId] = useState("");
+  function notiCall( notiType = false ){
+    if( notiType ) {
+      ConnectWarn.fire({
+        icon: 'success',
+        title: 'Connected'
+      })
+    } else {
+      ConnectWarn.fire({
+        icon: 'error',
+        title: 'Disconnected '
+      })
+    }
+  }
 
   const [selectedLatLng, setSelectedLatLng] = useState({
     lat: 22.94083,
@@ -45,6 +73,13 @@ function MapView() {
 
   return (
     <>
+      <Detector
+        render={({ online }) => {
+          notiCall(online);
+          return null
+        }}
+      />
+
       <Model
         visible={modelVisible}
         onOkClick={(e) => {
