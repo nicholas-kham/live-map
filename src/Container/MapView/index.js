@@ -34,7 +34,9 @@ const ConnectWarn = Swal.mixin({
 function MapView() {
   const [latlng, setlatlng] = useState({ lat: 22.94083, lng: 97.74459 });
   const [modelVisible, setModelVisible] = useState(false);
+  const [lastLstate, setlastLstate] = useState(false);
   // const [selectedMarkerId, setSelectedMarkerId] = useState("");
+
   function notiCall( notiType = false ){
     if( notiType ) {
       ConnectWarn.fire({
@@ -75,7 +77,7 @@ function MapView() {
     <>
       <Detector
         render={({ online }) => {
-          notiCall(online);
+          if(lastLstate !== online) { setlastLstate(online); notiCall(online); }
           return null
         }}
       />

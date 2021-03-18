@@ -24,7 +24,6 @@ const ConnectWarn = Swal.mixin({
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
   const [visibleClass, setVisible] = useState(false);
-  var loginState = false;
 
   function userStatus( notiType = false ){
     if( notiType ) {
