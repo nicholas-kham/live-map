@@ -51,7 +51,14 @@ const SideNav = () => {
           &times;
         </div>
         <Link to="/home">Home</Link>
-
+        <h3 className="verNumber" style={{
+          fontSize: "15px",
+          color: "white",
+          padding: "0px 8px 8px 40px",
+          display: "block",
+          textDecoration: "none"
+        }}> Version {process.env.REACT_APP_WEBAPP_VERSION} </h3>
+        
         <div>
           <Auth_Database
              visible = {visibleClass}
