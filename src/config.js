@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
-import 'firebase/analytics'
+import 'firebase/analytics';
+import "firebase/performance";
 
 export const config = {
   // DO NOT USE THESE CREDENTIALS ! THEY ARE HERE TO HELP IN THE LEARNING PROCESS.
@@ -16,6 +17,7 @@ export const config = {
 };
 
 firebase.initializeApp(config);
+export const perf = firebase.performance();
 export const analytics = firebase.analytics();
 
 //export const database = firebase.database();

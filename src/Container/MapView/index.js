@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ChangeView } from "../../ChangeView";
 import MapMarker, { PersonMarker } from "../../Components/MapMarker";
 import firebase from "firebase";
-import { config } from "../../config";
+import { config, analytics } from "../../config";
 import {
   FirebaseDatabaseNode,
   FirebaseDatabaseProvider,
