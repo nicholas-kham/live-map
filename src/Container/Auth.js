@@ -29,7 +29,7 @@ import { useState } from "react";
           <FirebaseAuthProvider {...config} firebase={firebase}>
             <State initial={{ isLoading: false }}>
             {({ state, setState }) => (
-                <React.Fragment>
+                <React.Fragment>isSignedIn
                 <IfFirebaseAuthed>
                     <div onLoad={ setLoginStatus(true) }>
                     <h2 style={{color: "white"}}> Edit Mode </h2>

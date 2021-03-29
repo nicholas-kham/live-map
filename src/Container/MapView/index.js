@@ -4,7 +4,8 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { ChangeView } from "../../ChangeView";
 import MapMarker, { PersonMarker } from "../../Components/MapMarker";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import 'firebase/database';
 import { config, analytics } from "../../config";
 import {
   FirebaseDatabaseNode,
