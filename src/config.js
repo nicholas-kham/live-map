@@ -16,6 +16,6 @@ export const config = {
 };
 
 firebase.initializeApp(config);
-firebase.analytics();
+export const analytics = firebase.analytics();
 
 //export const database = firebase.database();
