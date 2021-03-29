@@ -107,15 +107,16 @@ function MapView() {
       <FirebaseDatabaseProvider firebase={firebase} {...config}>
         <div className="location-selector-wrapper">
           <div className="location-selector">
-            <select
+            <select 
               onChange={(e) => {
                 setlatlng({
                   lat: parseFloat(e.target.value.split("|")[0]),
                   lng: parseFloat(e.target.value.split("|")[1]),
                 });
+                defaultValue ='22.94083|97.74459'
               }}
             > 
-              <option value="22.94083|97.74459" selected>လားရှိုး (Lashio)</option>
+              <option value="22.94083|97.74459">လားရှိုး (Lashio)</option>
               <option value="16.8409|96.1735"> ရန်ကုန် (Yangon)</option>
               <option value="21.9588|96.0891"> မန္တလေး (Mandalay)</option>
               <option value="19.7633|96.0785">နေပြည်တော် (Naypyi Daw)</option>

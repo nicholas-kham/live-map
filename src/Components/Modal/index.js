@@ -21,8 +21,9 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
             onChange={(e) => {
               setObjType(e.target.value);
             }}
+            defaultValue ='pol'
           >
-            <option value="pol" selected>ရဲ / လုံထိန်း</option>
+            <option value="pol">ရဲ / လုံထိန်း</option>
             <option value="resc">ကယ်ဆယ်ရေး / ဆေးရုံဆေးခန်း</option>
             <option value="milt">စစ်တပ်</option>
             <option value="bearer">အတားအဆီး</option>
@@ -35,8 +36,9 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
               onChange={(e) => {
                 setUnitSize(e.target.value);
               }}
+              defaultValue ='1-10'
             >
-              <option value="1-10" selected>၁ - ၁၀ ခန့် </option>
+              <option value="1-10">၁ - ၁၀ ခန့် </option>
               <option value="10-20">၁၀ - ၂၀ခန့် </option>
               <option value="20-50"> ၂၀ - ၅၀ ခန့်</option>
               <option value="50-100">၅၀ - ၁၀၀ခန့်</option>
