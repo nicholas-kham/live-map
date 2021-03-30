@@ -176,3 +176,19 @@
   position: relative;
   right: auto;
 }
+
+.adminBar{
+  opacity: 1;
+  color: greenyellow;
+  float: right;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.userBar{
+  opacity: 0;
+  color: greenyellow;
+  float: right;
+  text-align: right;
+  padding-right: 10px;
+}

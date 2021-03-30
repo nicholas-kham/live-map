@@ -24,6 +24,7 @@ const ConnectWarn = Swal.mixin({
 const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
   const [visibleClass, setVisible] = useState(false);
+  const [preLoginStatus, setperLoginStatus] = useState(false);
 
   function userStatus( notiType = false ){
     if( notiType ) {
@@ -62,6 +63,18 @@ const SideNav = () => {
         <div>
           <Auth_Database
              visible = {visibleClass}
+             logined = {()=>{
+              if(preLoginStatus == false) {
+                setperLoginStatus(true);
+                userStatus(true);
+              }
+             }}
+             logouted = {()=>{
+              if(preLoginStatus == true) {
+                setperLoginStatus(false);
+                userStatus(false);
+              }
+             }}
              >
           </Auth_Database>
         </div>
@@ -89,12 +102,15 @@ const SideNav = () => {
         <Detector
           render={({ online }) => {
             return(
-              <a className={`${online ? "normal" : "warning"}`}>
-                  {online ? "Online" : "Offline"}
-              </a>
+                <a className={`${online ? "normal" : "warning"}`}>
+                    {online ? "Online" : "Offline"}
+                </a>
             )
           }}
         />
+        <a className={`${preLoginStatus ? "adminBar" : "userBar"}`}> 
+          Admin
+        </a>
         
       </div>
     </>

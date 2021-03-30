@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { analytics } from './config';
 
 function sendToAnalytics({name, delta, value, id}) {
-  analytics.logEvent( name, 'event', {
+  analytics.logEvent( name, {
       // Built-in params:
       value: delta, // Use `delta` so the value can be summed.
       // Custom params:

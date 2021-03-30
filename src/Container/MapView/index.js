@@ -36,6 +36,7 @@ function MapView() {
   const [latlng, setlatlng] = useState({ lat: 22.94083, lng: 97.74459 });
   const [modelVisible, setModelVisible] = useState(false);
   const [lastLstate, setlastLstate] = useState(false);
+  const [newMarkID, setnewMarkID] = useState("NULL");
   // const [selectedMarkerId, setSelectedMarkerId] = useState("");
 
   function notiCall( notiType = false ){
@@ -48,7 +49,7 @@ function MapView() {
       ConnectWarn.fire({
         icon: 'error',
         title: 'Disconnected '
-      })
+      });
     }
   }
 
@@ -86,7 +87,11 @@ function MapView() {
       <Model
         visible={modelVisible}
         onOkClick={(e) => {
-          firebase.database().ref("locations/" + nanoid()).set({
+          var uniqueID = nanoid();
+          setnewMarkID( uniqueID );
+          console.log(newMarkID);
+          var saveLocation = `locations/${ newMarkID }`;
+          firebase.database().ref(saveLocation).set({
             created_at: Date.now(),
             id: nanoid(),
             unitSize: e.unitSize,
@@ -97,6 +102,7 @@ function MapView() {
             },
             type: e.objType,
           });
+          analytics.logEvent('add_marker', { Fid :  newMarkID.toString() });
           setModelVisible(false);
         }}
         onCancelClick={() => {
@@ -142,6 +148,7 @@ function MapView() {
                   password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                 ) {
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
+                  analytics.logEvent('master_login');
 
                   setModelVisible(true);
                   setCookie("MASTER_LOGIN", "exists", 1);
@@ -175,6 +182,7 @@ function MapView() {
                               const result = window.confirm("Want to delete?");
                               if (result) {
                                 firebase.database().ref("locations/" + fbKey).remove();
+                                analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
                               }
                             } else {
                               const password = prompt(
@@ -183,11 +191,13 @@ function MapView() {
                               if (
                                 password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
                               ) {
+                                analytics.logEvent('master_login');
                                 const result = window.confirm(
                                   "Want to delete?"
                                 );
                                 if (result) {
                                   firebase.database().ref("locations/" + fbKey).remove();
+                                  analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
                                 }
                               }
                             }
