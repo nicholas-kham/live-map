@@ -36,17 +36,17 @@ const Legend = () => {
           ">ရဲ/လုံထိန်း </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;'/><p style="margin:0; line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;' alt='RedCross'/><p style="margin:0; line-height: 16px;
         margin-left: 6px;
             ">ကယ်ဆယ်ရေး/ဆေးရုံ၊ ဆေးခန်း</p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;'/><p style="margin:0;  line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;' alt='Blocked'/><p style="margin:0;  line-height: 16px;
         margin-left: 6px;
             ">အတားအဆီးများ </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;'/><p style="margin:0;  line-height: 16px;
+        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;' alt='Person' /><p style="margin:0;  line-height: 16px;
         margin-left: 6px;
             ">သင် လက်ရှိနေရာ</p></div>`
       );

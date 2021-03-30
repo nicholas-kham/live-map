@@ -13,8 +13,17 @@ import { useState } from "react";
   import "firebase/auth";
   import { config, analytics } from "../config";
 
-  const Auth_Database = ({ visible, logined, logouted }) => {
+  const Auth_Database = ({ visible, curStatus, logined, logouted }) => {
     const [loginStatus, setLoginStatus] = useState(false);
+    const checkStatus = () =>{
+        console.log(" RenderCheck : ", curStatus, loginStatus);
+        if(curStatus != loginStatus){
+            if(loginStatus) {
+                logined();
+                console.log(" Relogined ");
+            }
+        }
+    }
       
       return(
         <div className={`loginModel ${visible ? 'visible' : 'hide'}`} 
@@ -31,7 +40,7 @@ import { useState } from "react";
             {({ state, setState }) => (
                 <React.Fragment>
                     <IfFirebaseAuthed>
-                        <div onLoad={ setLoginStatus(true) }>
+                        <div >
                             <h2 style={{color: "white"}}> Edit Mode </h2>
                             <button className="logout-btn"
                                 onClick={async () => {
@@ -39,6 +48,7 @@ import { useState } from "react";
                                     await firebase.app().auth().signOut();
                                     analytics.logEvent('logout');
                                     analytics.setUserProperties({UserType: 'User'});
+                                    //setLoginStatus(false);
                                     logouted();
                                     setState({ isLoading: false });
                                 }}
@@ -48,7 +58,7 @@ import { useState } from "react";
                         </div>
                     </IfFirebaseAuthed>
                     <IfFirebaseUnAuthed>
-                        <div onLoad={ setLoginStatus(false) }>
+                        <div >
                         <h2 style={{color: "white"}}>View Mode</h2>
                         <button className="login-btn"
                             onClick={async () => {
@@ -59,6 +69,7 @@ import { useState } from "react";
                                   const method = user.credential.signInMethod;
                                   analytics.logEvent('login', { method });
                                   analytics.setUserProperties({UserType : 'Admin'});
+                                  //setLoginStatus(true);
                                   logined();
 
                                   setState({ isLoading: false, error: false });

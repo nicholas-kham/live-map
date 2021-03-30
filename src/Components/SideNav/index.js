@@ -62,7 +62,8 @@ const SideNav = () => {
         
         <div>
           <Auth_Database
-             visible = {visibleClass}
+             visible = { visibleClass }
+             curStatus = { preLoginStatus }
              logined = {()=>{
               if(preLoginStatus == false) {
                 setperLoginStatus(true);
@@ -102,15 +103,15 @@ const SideNav = () => {
         <Detector
           render={({ online }) => {
             return(
-                <a className={`${online ? "normal" : "warning"}`}>
+                <b className={`${online ? "normal" : "warning"}`}>
                     {online ? "Online" : "Offline"}
-                </a>
+                </b>
             )
           }}
         />
-        <a className={`${preLoginStatus ? "adminBar" : "userBar"}`}> 
+        <b className={`${preLoginStatus ? "adminBar" : "userBar"}`}> 
           Admin
-        </a>
+        </b>
         
       </div>
     </>
