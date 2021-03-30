@@ -15,13 +15,14 @@ import { useState } from "react";
 
   const Auth_Database = ({ visible, curStatus, logined, logouted }) => {
     const [loginStatus, setLoginStatus] = useState(false);
+    
     const checkStatus = () =>{
-        console.log(" RenderCheck : ", curStatus, loginStatus);
-        if(curStatus != loginStatus){
-            if(loginStatus) {
-                logined();
-                console.log(" Relogined ");
-            }
+        var user = firebase.auth().currentUser;
+        if(user != null){
+            if(loginStatus) return;
+            logined();
+            setLoginStatus(true);
+            //console.log(" Relogined ");
         }
     }
       
@@ -40,7 +41,7 @@ import { useState } from "react";
             {({ state, setState }) => (
                 <React.Fragment>
                     <IfFirebaseAuthed>
-                        <div >
+                        <div onLoad={ checkStatus() }>
                             <h2 style={{color: "white"}}> Edit Mode </h2>
                             <button className="logout-btn"
                                 onClick={async () => {
@@ -48,7 +49,7 @@ import { useState } from "react";
                                     await firebase.app().auth().signOut();
                                     analytics.logEvent('logout');
                                     analytics.setUserProperties({UserType: 'User'});
-                                    //setLoginStatus(false);
+                                    setLoginStatus(false);
                                     logouted();
                                     setState({ isLoading: false });
                                 }}
@@ -65,11 +66,11 @@ import { useState } from "react";
                                 try {
                                   setState({ isLoading: true, error: false });
                                   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-                                  const user = await firebase.auth().signInWithPopup(googleAuthProvider);
-                                  const method = user.credential.signInMethod;
+                                  const userA = await firebase.auth().signInWithPopup(googleAuthProvider);
+                                  const method = userA.credential.signInMethod;
                                   analytics.logEvent('login', { method });
                                   analytics.setUserProperties({UserType : 'Admin'});
-                                  //setLoginStatus(true);
+                                  setLoginStatus(true);
                                   logined();
 
                                   setState({ isLoading: false, error: false });
