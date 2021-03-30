@@ -5,22 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { analytics } from './config';
 
-function sendToAnalytics({name, delta, id}) {
-  analytics.logEvent('send', 'event', {
-    eventCategory: 'Web Vitals',
-    eventAction: name,
-    // The `id` value will be unique to the current page load. When sending
-    // multiple values from the same page (e.g. for CLS), Google Analytics can
-    // compute a total by grouping on this ID (note: requires `eventLabel` to
-    // be a dimension in your report).
-    eventLabel: id,
-    // Google Analytics metrics must be integers, so the value is rounded.
-    // For CLS the value is first multiplied by 1000 for greater precision
-    // (note: increase the multiplier for greater precision if needed).
-    eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    // Use a non-interaction event to avoid affecting bounce rate.
-    nonInteraction: true,
-    // Use `sendBeacon()` if the browser supports it.
+function sendToAnalytics({name, delta, value, id}) {
+  analytics.logEvent('event', name, {
+      // Built-in params:
+      value: delta, // Use `delta` so the value can be summed.
+      // Custom params:
+      metric_id: id, // Needed to aggregate events.
+      metric_value: value, // Optional.
+      metric_delta: delta, // Optional.
+      // Any additional params or metadata (e.g. debug information) can be
+      // set here as well, within the following limitations:
+      // https://support.google.com/analytics/answer/9267744
     transport: 'beacon',
   });
 }
