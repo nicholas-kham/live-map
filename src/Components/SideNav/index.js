@@ -99,7 +99,7 @@ const SideNav = () => {
           else  setVisible(false);
         }}
       >
-        &nbsp; &#9776; &nbsp; Shan Map Live &nbsp;&nbsp;&nbsp;
+        &nbsp; &#9776; &nbsp; Lashio Map Live &nbsp;&nbsp;&nbsp;
         <Detector
           render={({ online }) => {
             return(
