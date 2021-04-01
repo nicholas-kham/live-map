@@ -159,7 +159,7 @@ function MapView() {
           <ChangeView center={[latlng.lat, latlng.lng]} zoom={14} />
 
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap</a>'
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.hotosm.org/" target="_blank" rel="noreferrer">Humanitarian OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
           />
           <PersonMarker
