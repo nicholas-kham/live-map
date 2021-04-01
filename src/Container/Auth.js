@@ -15,14 +15,30 @@ import { useState } from "react";
 
   const Auth_Database = ({ visible, curStatus, logined, logouted }) => {
     const [loginStatus, setLoginStatus] = useState(false);
-    
+    const [userName, setUserName] = useState("Null");
+    const [UID, setUID] = useState("Null");
+
     const checkStatus = () =>{
         var user = firebase.auth().currentUser;
         if(user != null){
             if(loginStatus) return;
             logined();
             setLoginStatus(true);
-            //console.log(" Relogined ");
+            user.providerData.forEach(function (profile) {
+                setUserName(profile.displayName);
+                setUID(profile.uid);
+                
+                window.UserName = userName;
+                window.UID = UID;
+            });
+            console.log(" Logined as : ", userName, UID);
+            console.log(" Logined as : ", window.UserName, window.UID);
+        } else {
+            setUserName(null);
+            setUID(null);
+            window.UserName = userName;
+            window.UID = UID;
+            console.log(" Not Logined as : ", window.UserName, window.UID);
         }
     }
       
@@ -42,7 +58,7 @@ import { useState } from "react";
                 <React.Fragment>
                     <IfFirebaseAuthed>
                         <div onLoad={ checkStatus() }>
-                            <h2 style={{color: "white"}}> Edit Mode </h2>
+                            <h2 style={{color: "white"}}> Logined as { userName }</h2>
                             <button className="logout-btn"
                                 onClick={async () => {
                                     setState({ isLoading: true });
