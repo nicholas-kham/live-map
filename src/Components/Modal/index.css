@@ -25,34 +25,44 @@
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border: 2px solid rgb(102, 101, 101);
+  width: auto; /* Could be more or less, depending on screen size */
+  max-width: 500px;
   position: relative;
   top: 25%;
+  border-radius: 1rem;
   -ms-transform: translateY(-30%);
   transform: translateY(-30%);
 }
 
 .modal-content select {
   margin: 10px;
+  width: auto;
+  display: inline;
   position: unset;
   flex-grow: 1;
 }
 .modal-content textarea {
+  padding: 5px;
   margin: 10px;
+  width: auto;
   position: unset;
   flex-grow: 1;
   width: 90vw;
+  border-radius: 0.5rem;
 }
 .modal-content button {
+  background-color: rgb(200, 200, 200);
+  margin: 5px;
   padding: 15px;
+  border-radius: 1rem;
   position: unset;
   flex-grow: 1;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: rgb(134, 134, 134);
   float: right;
   font-size: 28px;
   font-weight: bold;

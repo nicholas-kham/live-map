@@ -14,7 +14,8 @@ const Legend = () => {
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "info legend");
       div.style.background = "rgb(56, 56, 56,0.7)";
-      div.style.width = "160px";
+      div.style.width = "auto";
+      div.style.maxWidth = "40vw";
       div.style.padding = "20px 10px 10px 10px";
       div.style.display = "flex";
       div.style.flexDirection = "column";
@@ -38,7 +39,7 @@ const Legend = () => {
       labels.push(
         `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;' alt='RedCross'/><p style="margin:0; line-height: 16px;
         margin-left: 6px;
-            ">ကယ်ဆယ်ရေး/ဆေးရုံ၊ ဆေးခန်း</p></div>`
+            ">ဆေးရုံ၊ ဆေးခန်း</p></div>`
       );
       labels.push(
         `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;' alt='Blocked'/><p style="margin:0;  line-height: 16px;

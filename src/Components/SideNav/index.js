@@ -7,6 +7,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import Auth_Database from "../../Container/Auth";
 import { getCookie } from "../../utils/cookie-utils";
 import { Detector } from "react-detect-offline";
+import firebase from "firebase/app";
+import "firebase/auth";
 import Swal from 'sweetalert2'
 
 const ConnectWarn = Swal.mixin({
@@ -25,6 +27,29 @@ const SideNav = () => {
   const [toggleClass, setToggle] = useState("close-nav");
   const [visibleClass, setVisible] = useState(false);
   const [preLoginStatus, setperLoginStatus] = useState(false);
+  
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var uid = user.uid;
+      var userName = user.displayName;
+      window.UserName = userName;
+      window.UID = uid;
+      window.loginStatus = true;
+      if(preLoginStatus == false) {
+        setperLoginStatus(true);
+        userStatus(true);
+      }
+      //console.log(" Logined as : ", window.UserName, window.UID);
+    } else {
+        window.userName = null;
+        window.UID = null;
+        window.loginStatus = false;
+        if(preLoginStatus == true) {
+          setperLoginStatus(false);
+          userStatus(false);
+        }
+    }
+  });
 
   function userStatus( notiType = false ){
     if( notiType ) {
@@ -63,7 +88,6 @@ const SideNav = () => {
         <div>
           <Auth_Database
              visible = { visibleClass }
-             curStatus = { preLoginStatus }
              logined = {()=>{
               if(preLoginStatus == false) {
                 setperLoginStatus(true);

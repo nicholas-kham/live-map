@@ -24,7 +24,7 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
             defaultValue ='pol'
           >
             <option value="pol">ရဲ / လုံထိန်း</option>
-            <option value="resc">ကယ်ဆယ်ရေး / ဆေးရုံဆေးခန်း</option>
+            <option value="resc">ဆေးရုံဆေးခန်း</option>
             <option value="milt">စစ်တပ်</option>
             <option value="bearer">အတားအဆီး</option>
           </select>

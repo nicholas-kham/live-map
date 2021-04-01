@@ -9,6 +9,9 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  border-style:inset;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .sidenav a {
@@ -21,7 +24,7 @@
 }
 
 .sidenav a:hover {
-  color: #41d2e6;
+  color: #0818f7;
 }
 
 .sidenav .button {
@@ -50,9 +53,9 @@
   position: absolute;
   color: #ffffff;
   cursor: pointer;
-  top: -5px;
+  top: -10px;
   left: -30px;
-  font-size: 45px;
+  font-size: 50px;
   margin-left: 50px;
 }
 
@@ -71,10 +74,12 @@
 
 .open-nav {
   width: 200px;
+  border-style:inset;
 }
 
 .close-nav {
   width: 0;
+  border-style:none;
 }
 
 .sidenav .login-btn {
@@ -179,6 +184,7 @@
 
 .adminBar{
   opacity: 1;
+  display: inline;
   color: greenyellow;
   float: right;
   text-align: right;
@@ -187,6 +193,7 @@
 
 .userBar{
   opacity: 0;
+  display: inline;
   color: greenyellow;
   float: right;
   text-align: right;

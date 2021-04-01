@@ -13,34 +13,9 @@ import { useState } from "react";
   import "firebase/auth";
   import { config, analytics } from "../config";
 
-  const Auth_Database = ({ visible, curStatus, logined, logouted }) => {
+  const Auth_Database = ({ visible, logined, logouted }) => {
     const [loginStatus, setLoginStatus] = useState(false);
-    const [userName, setUserName] = useState("Null");
-    const [UID, setUID] = useState("Null");
-
-    const checkStatus = () =>{
-        var user = firebase.auth().currentUser;
-        if(user != null){
-            if(loginStatus) return;
-            logined();
-            setLoginStatus(true);
-            user.providerData.forEach(function (profile) {
-                setUserName(profile.displayName);
-                setUID(profile.uid);
-                
-                window.UserName = userName;
-                window.UID = UID;
-            });
-            console.log(" Logined as : ", userName, UID);
-            console.log(" Logined as : ", window.UserName, window.UID);
-        } else {
-            setUserName(null);
-            setUID(null);
-            window.UserName = userName;
-            window.UID = UID;
-            console.log(" Not Logined as : ", window.UserName, window.UID);
-        }
-    }
+    if(loginStatus != window.loginStatus) setLoginStatus(window.loginStatus);
       
       return(
         <div className={`loginModel ${visible ? 'visible' : 'hide'}`} 
@@ -57,8 +32,8 @@ import { useState } from "react";
             {({ state, setState }) => (
                 <React.Fragment>
                     <IfFirebaseAuthed>
-                        <div onLoad={ checkStatus() }>
-                            <h2 style={{color: "white"}}> Logined as { userName }</h2>
+                        <div >
+                            <h2 style={{color: "white"}}> Logined as { window.UserName }</h2>
                             <button className="logout-btn"
                                 onClick={async () => {
                                     setState({ isLoading: true });

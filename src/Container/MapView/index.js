@@ -145,7 +145,7 @@ function MapView() {
               } else {
                 const password = prompt("Please enter master password:", "");
                 if (
-                  password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
+                  password && sha256(btoa(password)) === process.env.REACT_APP_MASTER_KEY
                 ) {
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
                   analytics.logEvent('master_login');
@@ -189,9 +189,10 @@ function MapView() {
                                 "Please enter master password:"
                               );
                               if (
-                                password && sha256(btoa(password)) === "5cf04b2aa01e7b7215daada699a6917f64a9f431c62b4b930878e4d580c7c508"
+                                password && sha256(btoa(password)) === process.env.REACT_APP_MASTER_KEY
                               ) {
                                 analytics.logEvent('master_login');
+                                setCookie("MASTER_LOGIN", "exists", 1);
                                 const result = window.confirm(
                                   "Want to delete?"
                                 );
