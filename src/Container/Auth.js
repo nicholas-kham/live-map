@@ -33,7 +33,7 @@ import { useState } from "react";
                 <React.Fragment>
                     <IfFirebaseAuthed>
                         <div >
-                            <h2 style={{color: "white"}}> Logined as { window.UserName }</h2>
+                            <h2 style={{color: "white"}}> Welcome { window.UserName }</h2>
                             <button className="logout-btn"
                                 onClick={async () => {
                                     setState({ isLoading: true });

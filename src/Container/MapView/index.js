@@ -89,7 +89,7 @@ function MapView() {
         onOkClick={(e) => {
           var uniqueID = nanoid();
           setnewMarkID( uniqueID );
-          console.log(newMarkID);
+          //console.log(newMarkID);
           var saveLocation = `locations/${ newMarkID }`;
           firebase.database().ref(saveLocation).set({
             created_at: Date.now(),
@@ -101,6 +101,12 @@ function MapView() {
               lng: selectedLatLng.lng,
             },
             type: e.objType,
+          }, (error) => {
+            if (error) {
+              // The write failed...
+            } else {
+              // Data saved successfully!
+            }
           });
           analytics.logEvent('add_marker', { Fid :  newMarkID.toString() });
           setModelVisible(false);
@@ -151,7 +157,7 @@ function MapView() {
                   analytics.logEvent('master_login');
 
                   setModelVisible(true);
-                  setCookie("MASTER_LOGIN", "exists", 1);
+                  setCookie("MASTER_LOGIN", "exists", 3);
                 } 
               }
             }}
@@ -181,7 +187,11 @@ function MapView() {
                             if (getCookie("MASTER_LOGIN") === "exists") {
                               const result = window.confirm("Want to delete?");
                               if (result) {
-                                firebase.database().ref("locations/" + fbKey).remove();
+                                firebase.database().ref("locations/" + fbKey).remove().then(() => {
+                                  // File deleted successfully
+                                }).catch((error) => {
+                                  // Uh-oh, an error occurred!
+                                });
                                 analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
                               }
                             } else {
@@ -192,12 +202,16 @@ function MapView() {
                                 password && sha256(btoa(password)) === process.env.REACT_APP_MASTER_KEY
                               ) {
                                 analytics.logEvent('master_login');
-                                setCookie("MASTER_LOGIN", "exists", 1);
+                                setCookie("MASTER_LOGIN", "exists", 3);
                                 const result = window.confirm(
                                   "Want to delete?"
                                 );
                                 if (result) {
-                                  firebase.database().ref("locations/" + fbKey).remove();
+                                  firebase.database().ref("locations/" + fbKey).remove().then(() => {
+                                    // File deleted successfully
+                                  }).catch((error) => {
+                                    // Uh-oh, an error occurred!
+                                  });
                                   analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
                                 }
                               }
