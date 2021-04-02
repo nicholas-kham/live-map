@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/live-map/static/css/main.ad78b4b6.chunk.css",
-    "main.js": "/live-map/static/js/main.47b610ea.chunk.js",
-    "main.js.map": "/live-map/static/js/main.47b610ea.chunk.js.map",
+    "main.js": "/live-map/static/js/main.22f501d7.chunk.js",
+    "main.js.map": "/live-map/static/js/main.22f501d7.chunk.js.map",
     "runtime-main.js": "/live-map/static/js/runtime-main.a158ca53.js",
     "runtime-main.js.map": "/live-map/static/js/runtime-main.a158ca53.js.map",
-    "static/css/2.4bf4332b.chunk.css": "/live-map/static/css/2.4bf4332b.chunk.css",
-    "static/js/2.f89d8ade.chunk.js": "/live-map/static/js/2.f89d8ade.chunk.js",
-    "static/js/2.f89d8ade.chunk.js.map": "/live-map/static/js/2.f89d8ade.chunk.js.map",
+    "static/css/2.761c8a4b.chunk.css": "/live-map/static/css/2.761c8a4b.chunk.css",
+    "static/js/2.6258e4c5.chunk.js": "/live-map/static/js/2.6258e4c5.chunk.js",
+    "static/js/2.6258e4c5.chunk.js.map": "/live-map/static/js/2.6258e4c5.chunk.js.map",
     "static/js/3.62d864f8.chunk.js": "/live-map/static/js/3.62d864f8.chunk.js",
     "static/js/3.62d864f8.chunk.js.map": "/live-map/static/js/3.62d864f8.chunk.js.map",
     "index.html": "/live-map/index.html",
-    "static/css/2.4bf4332b.chunk.css.map": "/live-map/static/css/2.4bf4332b.chunk.css.map",
+    "static/css/2.761c8a4b.chunk.css.map": "/live-map/static/css/2.761c8a4b.chunk.css.map",
     "static/css/main.ad78b4b6.chunk.css.map": "/live-map/static/css/main.ad78b4b6.chunk.css.map",
-    "static/js/2.f89d8ade.chunk.js.LICENSE.txt": "/live-map/static/js/2.f89d8ade.chunk.js.LICENSE.txt",
+    "static/js/2.6258e4c5.chunk.js.LICENSE.txt": "/live-map/static/js/2.6258e4c5.chunk.js.LICENSE.txt",
     "static/media/bearer.56672884.svg": "/live-map/static/media/bearer.56672884.svg",
-    "static/media/all.css": "/live-map/static/media/fa-solid-900.f4f93856.woff",
+    "static/media/all.css": "/live-map/static/media/fa-solid-900.efbd5d20.eot",
     "static/media/person.f487c13b.svg": "/live-map/static/media/person.f487c13b.svg",
     "static/media/redcross.1cef6356.svg": "/live-map/static/media/redcross.1cef6356.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a158ca53.js",
-    "static/css/2.4bf4332b.chunk.css",
-    "static/js/2.f89d8ade.chunk.js",
+    "static/css/2.761c8a4b.chunk.css",
+    "static/js/2.6258e4c5.chunk.js",
     "static/css/main.ad78b4b6.chunk.css",
-    "static/js/main.47b610ea.chunk.js"
+    "static/js/main.22f501d7.chunk.js"
   ]
 }
