@@ -149,7 +149,7 @@ function MapView() {
         <MapContainer
           style={{ height: `100vh` }}
           center={[latlng.lat, latlng.lng]}
-          zoom={13}
+          zoom={14}
           zoomControl={true}
           scrollWheelZoom={true}
         >
@@ -204,7 +204,7 @@ function MapView() {
               }
             }}
           />
-          <ChangeView center={[latlng.lat, latlng.lng]} zoom={13} />
+          <ChangeView center={[latlng.lat, latlng.lng]} zoom={14} />
 
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.hotosm.org/" target="_blank" rel="noreferrer">Humanitarian OpenStreetMap</a>'
