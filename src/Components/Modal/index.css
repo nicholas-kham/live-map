@@ -36,6 +36,7 @@
 }
 
 .modal-content select {
+  border-radius: 0.5rem;
   margin: 10px;
   width: auto;
   display: inline;
@@ -53,7 +54,10 @@
 }
 .modal-content button {
   background-color: rgb(200, 200, 200);
+  display: inline-block;
+  font-weight: bold;
   margin: 5px;
+  font-size: medium;
   padding: 15px;
   border-radius: 1rem;
   position: unset;

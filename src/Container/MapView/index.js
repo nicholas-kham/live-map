@@ -171,7 +171,8 @@ function MapView() {
                   inputAttributes: {
                     minlength: 8,
                     autocapitalize: 'off',
-                    autocorrect: 'off'
+                    autocorrect: 'off',
+                    'aria-label': 'Type your message here'
                   }
                 });
                 if ( enterPass && sha256(btoa(enterPass)) === process.env.REACT_APP_MASTER_KEY )

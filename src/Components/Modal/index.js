@@ -16,7 +16,7 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
         </span>
         <br className="clear" />
         <div className="flex">
-          <p>တွေ့ရှိသော &nbsp;အရာ</p>
+          <p style={{ fontWeight: "bold" }}>တွေ့ရှိသော &nbsp;အရာ</p>
           <select
             onChange={(e) => {
               setObjType(e.target.value);
@@ -31,7 +31,7 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
         </div>
         {(objType === "pol" || objType === "milt") && (
           <div className="flex">
-            <p>တပ်ဖွဲ့ဝင် အင်အား</p>
+            <p style={{ fontWeight: "bold" }}>တပ်ဖွဲ့ဝင် အင်အား</p>
             <select
               onChange={(e) => {
                 setUnitSize(e.target.value);
@@ -48,8 +48,8 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
           </div>
         )}
         <div className="flex">
-          <p>ပြောလိုသော အရာ</p>
-          <textarea
+          <p style={{ fontWeight: "bold" }}>ပြောလိုသော အရာ</p>
+          <textarea placeholder="အသေးစိတ်များ ဖြည့်စွက်ရေးရန်"
             cols="20"
             rows="10"
             onChange={(e) => setMessage(e.target.value)}
@@ -60,12 +60,17 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
             onClick={() => {
               onOkClick({ objType, message, unitSize });
             }}
+            style={{ backgroundColor: "rgb(48, 133, 214)" }}
           >
             Report (တင်မည်)
           </button>
         </div>
         <div className="flex">
-          <button onClick={() => onCancelClick()}>Cancel (ထွက်မည်)</button>
+          <button onClick={() => onCancelClick()}
+            style={{ backgroundColor: " rgb(221, 51, 51)" }}
+          >
+            Cancel (ထွက်မည်)
+          </button>
         </div>
       </div>
     </div>
