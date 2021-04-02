@@ -169,11 +169,13 @@
 }
 
 .normal{
+  display: inline;
   color: greenyellow;
   right: 80%;
 }
 
 .warning{
+  display: inline;
   color: red;
   position: relative;
   right: auto;

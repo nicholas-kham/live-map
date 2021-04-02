@@ -15,6 +15,7 @@ const Legend = () => {
       const div = L.DomUtil.create("div", "info legend");
       div.style.background = "rgb(56, 56, 56,0.7)";
       div.style.width = "auto";
+      div.style.height = "auto";
       div.style.maxWidth = "40vw";
       div.style.padding = "20px 10px 10px 10px";
       div.style.display = "flex";
@@ -27,32 +28,32 @@ const Legend = () => {
       let labels = [];
 
       labels.push(
-        `<div style='display:flex;'><div class='red-circle' style='width:20px;height:20px;margin-left: 10px;
-          margin-top: 5px;'></div> <p style="margin:0;line-height: 10px;
+        `<div style='display:inline-flex; margin: 5px;'><div class='red-circle' style='width:20px;height:20px;margin-left: 10px;
+          margin-top: 0px;'></div> <p style="margin:0; line-height: 0px;
           ">စစ်တပ် </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><div class='blue-circle' style='width:20px;height:20px;margin-left: 10px;
-          margin-top: 5px;'></div> <p style="margin:0;line-height: 10px;
+        `<div style='display:flex;margin: 5px;'><div class='blue-circle' style='width:20px;height:20px;margin-left: 10px;
+          margin-top: 0px;'></div> <p style="margin:0; line-height: 0px;
           ">ရဲ/လုံထိန်း </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;' alt='RedCross'/><p style="margin:0; line-height: 16px;
+        `<div style='display:flex;margin: 5px;'><img class='legend-marker' src='${redcross}' style='width:25px;height:25px;' alt='RedCross'/><p style="margin:0; line-height: auto;
         margin-left: 6px;
             ">ဆေးရုံ၊ ဆေးခန်း</p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;' alt='Blocked'/><p style="margin:0;  line-height: 16px;
+        `<div style='display:flex;margin: 5px;'><img class='legend-marker' src='${bearer}' style='width:25px;height:25px;' alt='Blocked'/><p style="margin:0;  line-height: auto;
         margin-left: 6px;
             ">အတားအဆီးများ </p></div>`
       );
       labels.push(
-        `<div style='display:flex;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;' alt='Person' /><p style="margin:0;  line-height: 16px;
+        `<div style='display:flex;margin: 5px;'><img class='legend-marker' src='${person}' style='width:25px;height:25px;' alt='Person' /><p style="margin:0;  line-height: auto;
         margin-left: 6px;
-            ">သင် လက်ရှိနေရာ</p></div>`
+            ">သင့်လက်ရှိနေရာ</p></div>`
       );
 
-      div.innerHTML = labels.join("<br>");
+      div.innerHTML = labels.join("");
       return div;
     };
 

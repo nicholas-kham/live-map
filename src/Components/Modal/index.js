@@ -60,14 +60,14 @@ const Model = ({ visible, onOkClick, onCancelClick }) => {
             onClick={() => {
               onOkClick({ objType, message, unitSize });
             }}
-            style={{ backgroundColor: "rgb(48, 133, 214)" }}
+            style={{ backgroundColor: "rgb(48, 133, 214)", color: "white" }}
           >
             Report (တင်မည်)
           </button>
         </div>
         <div className="flex">
           <button onClick={() => onCancelClick()}
-            style={{ backgroundColor: " rgb(221, 51, 51)" }}
+            style={{ backgroundColor: " rgb(221, 51, 51)", color: "white" }}
           >
             Cancel (ထွက်မည်)
           </button>

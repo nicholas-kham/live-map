@@ -115,7 +115,8 @@ const SideNav = () => {
           position: "fixed",
           zIndex: "1000",
           width: "100%",
-          padding: "5px"
+          padding: "5px",
+          display: "inline"
         }}
         onClick={() => {
           setToggle("open-nav");
