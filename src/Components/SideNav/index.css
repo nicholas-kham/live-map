@@ -9,7 +9,6 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  border-style:inset;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
@@ -74,12 +73,10 @@
 
 .open-nav {
   width: 200px;
-  border-style:inset;
 }
 
 .close-nav {
   width: 0;
-  border-style:none;
 }
 
 .sidenav .login-btn {

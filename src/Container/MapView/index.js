@@ -20,7 +20,7 @@ import { sha256 } from "js-sha256";
 import { Detector } from "react-detect-offline";
 import Swal from 'sweetalert2'
 
-const ConnectWarn = Swal.mixin({
+const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
@@ -41,12 +41,12 @@ function MapView() {
 
   function notiCall( notiType = false ){
     if( notiType ) {
-      ConnectWarn.fire({
+      Toast.fire({
         icon: 'success',
         title: 'Connected'
-      })
+      });
     } else {
-      ConnectWarn.fire({
+      Toast.fire({
         icon: 'error',
         title: 'Disconnected '
       });
@@ -104,11 +104,22 @@ function MapView() {
           }, (error) => {
             if (error) {
               // The write failed...
+              Swal.fire(
+                'Error!',
+                'Adding new marker Failed! You do not have permission. Please Login as Admin.',
+                'error'
+              )
+              analytics.logEvent('add_error', { ErrorMsg : error.message });
             } else {
               // Data saved successfully!
+              Swal.fire(
+                'Success!',
+                'New marker has been added.',
+                'success'
+              )
+              analytics.logEvent('add_marker', { Fid :  newMarkID.toString() });
             }
           });
-          analytics.logEvent('add_marker', { Fid :  newMarkID.toString() });
           setModelVisible(false);
         }}
         onCancelClick={() => {
@@ -149,20 +160,50 @@ function MapView() {
 
                 setModelVisible(true);
               } else {
-                const password = prompt("Please enter master password:", "");
-                if (
-                  password && sha256(btoa(password)) === process.env.REACT_APP_MASTER_KEY
-                ) {
+                (async () => {
+
+                const { value: enterPass } = await Swal.fire({
+                  title: 'Please enter Master Password!',
+                  input: 'password',
+                  inputLabel: 'Master Password',
+                  inputValue: '',
+                  showCancelButton: true,
+                  inputAttributes: {
+                    minlength: 8,
+                    autocapitalize: 'off',
+                    autocorrect: 'off'
+                  }
+                });
+                if ( enterPass && sha256(btoa(enterPass)) === process.env.REACT_APP_MASTER_KEY )
+                 {
+                  Toast.fire({
+                    icon: 'success',
+                    title: 'Master Logined! '
+                  });
                   setSelectedLatLng({ lat: e.lat, lng: e.lng });
                   analytics.logEvent('master_login');
 
                   setModelVisible(true);
                   setCookie("MASTER_LOGIN", "exists", 3);
-                } 
+                } else {
+                  if(enterPass != null) {
+                    Toast.fire({
+                      icon: 'error',
+                      title: 'Password Failed! '
+                    });
+                  } else {
+                    Toast.fire({
+                      icon: 'error',
+                      title: 'Master Canceled!'
+                    });
+                    //console.log(" Pass : "+ enterPass);
+                  }
+                }
+               })()
               }
             }}
           />
-          <ChangeView center={[latlng.lat, latlng.lng]} zoom={14} />
+          <ChangeView center={[latlng.lat, latlng.lng]} zoom={13} />
 
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.hotosm.org/" target="_blank" rel="noreferrer">Humanitarian OpenStreetMap</a>'
@@ -185,36 +226,104 @@ function MapView() {
                           fbKey={i}
                           onMarkerClick={(e, fbKey, id) => {
                             if (getCookie("MASTER_LOGIN") === "exists") {
-                              const result = window.confirm("Want to delete?");
-                              if (result) {
-                                firebase.database().ref("locations/" + fbKey).remove().then(() => {
-                                  // File deleted successfully
-                                }).catch((error) => {
-                                  // Uh-oh, an error occurred!
-                                });
-                                analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
-                              }
-                            } else {
-                              const password = prompt(
-                                "Please enter master password:"
-                              );
-                              if (
-                                password && sha256(btoa(password)) === process.env.REACT_APP_MASTER_KEY
-                              ) {
-                                analytics.logEvent('master_login');
-                                setCookie("MASTER_LOGIN", "exists", 3);
-                                const result = window.confirm(
-                                  "Want to delete?"
-                                );
-                                if (result) {
+                              Swal.fire({
+                                title: 'Are you sure to delete?',
+                                text: "You won't be able to revert this!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, delete it!'
+                              }).then((result) => {
+                                if (result.isConfirmed) {
                                   firebase.database().ref("locations/" + fbKey).remove().then(() => {
                                     // File deleted successfully
+                                    analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
+                                    Swal.fire(
+                                      'Deleted!',
+                                      'Marker has been deleted.',
+                                      'success'
+                                    )
                                   }).catch((error) => {
                                     // Uh-oh, an error occurred!
+                                    Swal.fire(
+                                      'Error!',
+                                      'You do not have permission to delete marker. Login to your Admin account.',
+                                      'error'
+                                    )
+                                    analytics.logEvent('delete_error', { ErrorMsg : error.message });
                                   });
-                                  analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
+                                  
                                 }
-                              }
+                              });
+                            } else {
+                              (async () => {
+
+                                const { value: enterPassA } = await Swal.fire({
+                                  title: 'Please enter Master Password!',
+                                  input: 'password',
+                                  inputLabel: 'Master Password',
+                                  inputValue: '',
+                                  showCancelButton: true,
+                                  inputAttributes: {
+                                    minlength: 8,
+                                    autocapitalize: 'off',
+                                    autocorrect: 'off'
+                                  }
+                                });
+                                if ( enterPassA && sha256(btoa(enterPassA)) === process.env.REACT_APP_MASTER_KEY) 
+                                {
+                                  Toast.fire({
+                                    icon: 'success',
+                                    title: 'Master Logined! '
+                                  });
+                                  analytics.logEvent('master_login');
+                                  setCookie("MASTER_LOGIN", "exists", 3);
+                                  Swal.fire({
+                                    title: 'Are you sure to delete?',
+                                    text: "You won't be able to revert this!",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Yes, delete it!'
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                      firebase.database().ref("locations/" + fbKey).remove().then(() => {
+                                        // File deleted successfully
+                                        analytics.logEvent('delete_marker', { Fid : fbKey.toString() });
+                                        Swal.fire(
+                                          'Deleted!',
+                                          'Marker has been deleted.',
+                                          'success'
+                                        )
+                                      }).catch((error) => {
+                                        // Uh-oh, an error occurred!
+                                        Swal.fire(
+                                          'Error!',
+                                          'You do not have permission to delete marker. Login to your Admin account.',
+                                          'error'
+                                        )
+                                        analytics.logEvent('delete_error', { ErrorMsg : error.message });
+                                      });
+                                      
+                                    }
+                                  });
+                                } else {
+                                  if(enterPassA != null) {
+                                    Toast.fire({
+                                      icon: 'error',
+                                      title: 'Password Failed! '
+                                    });
+                                  } else {
+                                    Toast.fire({
+                                      icon: 'error',
+                                      title: 'Master Canceled!'
+                                    });
+                                    //console.log(" Pass : "+ enterPassA);
+                                  }
+                                }
+                              })()
                             }
                           }}
                         />
